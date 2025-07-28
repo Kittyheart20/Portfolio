@@ -128,7 +128,7 @@ function StarbyDemo() {
                         setInput('')
 
                         try {
-                            const res = await fetch(`${apiBase}/chat`, {
+                            const response = await fetch(`${apiBase}/chat`, {
                                 method: 'POST',
                                 headers: { 'Content-Type': 'application/json' },
                                 body: JSON.stringify({message: input})
