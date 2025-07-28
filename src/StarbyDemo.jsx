@@ -10,6 +10,13 @@ function StarbyDemo() {
         isBot: true
     }])
     const [input, setInput] = useState('')
+    const bottomRef = useRef(null);
+
+     useEffect(() => {
+        bottomRef.current?.scrollIntoView({ behavior: "smooth", block: "nearest" });
+     }, [messages]);
+
+     
   // CHAT FUNCTIONALITY - COMMENTED OUT FOR YOU TO BUILD FROM SCRATCH
   // const [messages, setMessages] = useState([
   //   {
@@ -95,7 +102,7 @@ function StarbyDemo() {
           <p style={{ color: '#c4b5fd', marginTop: '1rem' }}>
             This is a simplified demo of Starby. It can take up to a minute for starby to respond to your first message.
             This page is still under development and will be updated soon!
-            <br /> <br />
+            <br />
             {/* The real version integrates with Twitch, uses voice recognition, and can control OBS overlays! */}
           </p>
         </div>
@@ -111,6 +118,7 @@ function StarbyDemo() {
                     {msg.text}
                 </div>
                 ))}
+                <div ref={bottomRef} />
             </div>
             {/* Inputs */}
             <div style = {{ display: "flex", gap: "0.5rem" }}>
