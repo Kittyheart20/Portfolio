@@ -93,7 +93,7 @@ function StarbyDemo() {
           <h1>Starby AI Chatbot Demo</h1>
           <h3>Live AI Streaming Companion</h3>
           <p style={{ color: '#c4b5fd', marginTop: '1rem' }}>
-            {/* This is a simplified demo of Starby.  */}
+            {/* This is a simplified demo of Starby. It can take up to a minute for starby to respond to your first message.*/}
             This page is still under development and will be updated soon!
             <br /> <br />
             {/* The real version integrates with Twitch, uses voice recognition, and can control OBS overlays! */}
@@ -121,9 +121,26 @@ function StarbyDemo() {
                     placeholder="Chat with Starby..."
                 />
                 <button
-                    onClick = {() => {
-                        setMessages([...messages, {text: input, isBot: false}])
+                    onClick = {async() => {
+                        const userInput = {text: input, isBot: false}
+                        const apiBase = process.env.NODE_ENV === "production" ? "https://portfoliochatserver.onrender.com" : "http://localhost:3001";
+                        setMessages(prev => [...prev, { text: input, isBot: false }])
                         setInput('')
+
+                        try {
+                            const res = await fetch(`${apiBase}/chat`, {
+                                method: 'POST',
+                                headers: { 'Content-Type': 'application/json' },
+                                body: JSON.stringify({message: input})
+                            });
+                            const data = await response.json();
+                            const botResponse = {text: data.response, isBot: true}
+                            setMessages(prev => [...prev, botResponse])
+                        } 
+                        catch (error) {
+                            console.error('Error sending message:', error)
+                            setMessages(prev => [...prev, {text: "Sorry, I'm having trouble connecting to the server. Please try again later.", isBot: true}])
+                        }
                     }}
                 >Send</button>
             </div>
