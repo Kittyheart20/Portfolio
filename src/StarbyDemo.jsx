@@ -93,7 +93,7 @@ function StarbyDemo() {
           <h1>Starby AI Chatbot Demo</h1>
           <h3>Live AI Streaming Companion</h3>
           <p style={{ color: '#c4b5fd', marginTop: '1rem' }}>
-            {/* This is a simplified demo of Starby. It can take up to a minute for starby to respond to your first message.*/}
+            This is a simplified demo of Starby. It can take up to a minute for starby to respond to your first message.
             This page is still under development and will be updated soon!
             <br /> <br />
             {/* The real version integrates with Twitch, uses voice recognition, and can control OBS overlays! */}
