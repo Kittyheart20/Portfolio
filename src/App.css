@@ -292,6 +292,64 @@ header a {
   display: inline-block;
 }
 
+/* Chat */
+.ChatBox {
+  background: linear-gradient(0deg, rgba(44, 40, 90, 0.8) 0%, rgba(27, 32, 105, 0.6) 100%); 
+  backdrop-filter: blur(10px);
+  padding: 3rem 2rem;
+  margin: 4rem auto;
+  width: 85%;
+  border-radius: 16px;
+  border: 1px solid rgba(36, 30, 123, 0.2);
+}
+
+.MessageBox {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  height: 30rem;
+  overflow-y: auto;
+}
+
+.UserChatMessage {
+    background: linear-gradient(135deg, rgba(197, 158, 136, 0.2) 0%, rgba(254, 215, 170, 0.15) 100%);
+    padding: 1rem;
+    border-radius: 12px;
+    max-width: 800px;
+    gap: 1rem;
+    color: #fed7aa;
+    align-self: flex-end;
+}
+
+.BotChatMessage {
+  background: linear-gradient(135deg, rgba(181, 191, 251, 0.2) 0%, rgba(170, 243, 254, 0.15) 100%);
+  padding: 1rem;
+  border-radius: 12px;
+  max-width: 800px;
+  gap: 1rem;
+  color: #e2d8ff;
+  align-self: flex-start;
+}
+
+.UserChatMessageTitle {
+  font-size: 0.9rem;
+  margin-bottom: 0.3rem;
+  opacity: 0.8;
+  color: #fed7aa;
+  font-size: 1.2rem;
+  text-shadow: 0 0 10px rgba(251, 191, 125, 0.5);
+}
+
+.BotChatMessageTitle {
+  font-size: 0.9rem;
+  margin-bottom: 0.3rem;
+  opacity: 0.8;
+  color: #e2d8ff;
+  font-size: 1.2rem;
+  text-shadow: 0 0 10px rgba(168, 85, 247, 0.5);
+}
+
 /* Links */
 
 a {
@@ -363,6 +421,27 @@ header p {
   margin: 0;
   font-weight: 500;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+input {
+  flex: 1;
+  background: linear-gradient(135deg, rgba(251, 207, 181, 0.2) 0%, rgba(254, 215, 170, 0.15) 100%);
+  padding: 0.8rem 1rem;
+  border: 1px solid rgba(139, 92, 246, 0.3);
+  border-radius: 16px;
+  color: #e7e0ff;
+  font-size: medium;
+}
+
+button {
+  padding: 1rem 2rem;
+  margin: 0.5rem;
+  border: 1px solid rgba(139, 92, 246, 0.3);
+  border-radius: 12px;
+  background: #8b5cf6;
+  color: #d1c4f7;
+  text-shadow: 0 1px 2px rgba(42, 3, 59, 0.3);
+  font-size: medium;
 }
 
 

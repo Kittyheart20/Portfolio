@@ -1,65 +1,73 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import WebHeader, { BackgroundBubbles } from './parts';
 import './App.css';
+// import { isCSSRequest } from 'vite';
 
 function StarbyDemo() {
-  const [messages, setMessages] = useState([
-    {
-      id: 1,
-      text: "Hello! I'm Starby, your AI streaming companion! I can chat with you, respond to your stream, and even react to your audience. Try asking me something!",
-      isBot: true,
-      timestamp: new Date()
-    }
-  ]);
-  const [inputMessage, setInputMessage] = useState('');
-  const [isTyping, setIsTyping] = useState(false);
-  const chatEndRef = useRef(null);
+    const [messages, setMessages] = useState([{
+        text: "Hello! I'm Starby, your AI streaming companion! Try asking me something!",
+        isBot: true
+    }])
+    const [input, setInput] = useState('')
+  // CHAT FUNCTIONALITY - COMMENTED OUT FOR YOU TO BUILD FROM SCRATCH
+  // const [messages, setMessages] = useState([
+  //   {
+  //     id: 1,
+  //     text: "Hello! I'm Starby, your AI streaming companion! I can chat with you, respond to your stream, and even react to your audience. Try asking me something!",
+  //     isBot: true,
+  //     timestamp: new Date()
+  //   }
+  // ]);
+  // const [inputMessage, setInputMessage] = useState('');
+  // const [isTyping, setIsTyping] = useState(false);
+  // const chatEndRef = useRef(null);
 
-  const scrollToBottom = () => {
-    chatEndRef.current?.scrollIntoView({ behavior: "smooth" });
-  };
+  // const scrollToBottom = () => {
+  //   chatEndRef.current?.scrollIntoView({ behavior: "smooth" });
+  // };
 
-  useEffect(() => {
-    scrollToBottom();
-  }, [messages]);
+  // useEffect(() => {
+  //   scrollToBottom();
+  // }, [messages]);
 
-  const handleSendMessage = async (e) => {
-    e.preventDefault();
-    if (!inputMessage.trim()) return;
+  // const handleSendMessage = async (e) => {
+  //   e.preventDefault();
+  //   if (!inputMessage.trim()) return;
 
-    // Add user message
-    const userMessage = {
-      id: Date.now(),
-      text: inputMessage,
-      isBot: false,
-      timestamp: new Date()
-    };
+  //   // Add user message
+  //   const userMessage = {
+  //     id: Date.now(),
+  //     text: inputMessage,
+  //     isBot: false,
+  //     timestamp: new Date()
+  //   };
 
-    setMessages(prev => [...prev, userMessage]);
-    setInputMessage('');
-    setIsTyping(true);
+  //   setMessages(prev => [...prev, userMessage]);
+  //   setInputMessage('');
+  //   setIsTyping(true);
 
-    // Simulate AI response (in real app, this would call your API)
-    setTimeout(() => {
-      const responses = [
-        "That's a great question! As an AI designed for streaming, I love interacting with both streamers and their audience.",
-        "I can help you engage with your viewers, answer questions about your stream, and even change my expressions based on the mood!",
-        "Thanks for trying out my demo! In the real version, I use Google Cloud Speech-to-Text and ChatGPT's API for natural conversations.",
-        "I'm designed to pause when you speak over me and can read Twitch chat to interact with your audience in real-time!",
-        "That's interesting! I can also integrate with OBS to change my overlay expressions and react to channel point redemptions."
-      ];
+  //   // Simulate AI response (in real app, this would call your API)
+  //   setTimeout(() => {
+  //     const responses = [
+  //       "That's a great question! As an AI designed for streaming, I love interacting with both streamers and their audience.",
+  //       "I can help you engage with your viewers, answer questions about your stream, and even change my expressions based on the mood!",
+  //       "Thanks for trying out my demo! In the real version, I use Google Cloud Speech-to-Text and ChatGPT's API for natural conversations.",
+  //       "I'm designed to pause when you speak over me and can read Twitch chat to interact with your audience in real-time!",
+  //       "That's interesting! I can also integrate with OBS to change my overlay expressions and react to channel point redemptions."
+  //     ];
 
-      const botMessage = {
-        id: Date.now() + 1,
-        text: responses[Math.floor(Math.random() * responses.length)],
-        isBot: true,
-        timestamp: new Date()
-      };
+  //     const botMessage = {
+  //       id: Date.now() + 1,
+  //       text: responses[Math.floor(Math.random() * responses.length)],
+  //       isBot: true,
+  //       timestamp: new Date()
+  //     };
 
-      setMessages(prev => [...prev, botMessage]);
-      setIsTyping(false);
-    }, 1500);
-  };
+  //     setMessages(prev => [...prev, botMessage]);
+  //     setIsTyping(false);
+  //   }, 1500);
+  // };
 
   return (
     <div>
@@ -76,48 +84,54 @@ function StarbyDemo() {
         }}
       ></div>
 
-      {/* Bubbles background */}
-      <div className="bubbles">
-        {[...Array(8)].map((_, i) => (
-          <div
-            key={i}
-            className="bubble"
-            style={{
-              width: `${40 + i * 5}px`,
-              height: `${40 + i * 5}px`,
-              left: `${10 + i * 10}%`,
-              animationDelay: `${-i * 2}s`,
-              animationDuration: `${15 + i * 2}s`
-            }}
-          ></div>
-        ))}
-      </div>
-
-      {/* Header */}
-      <header>
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-          <Link to="/" style={{ color: 'white', textDecoration: 'none', fontSize: '1.2rem' }}>
-            ← Back to Portfolio
-          </Link>
-          <p style={{ textAlign: "right", margin: 0 }}>
-            <a href="https://www.linkedin.com/in/erin-haynes-uiuc/" target="_blank" rel="noopener noreferrer">LinkedIn</a> • <a href="https://github.com/Kittyheart20" target="_blank" rel="noopener noreferrer">GitHub</a>
-          </p>
-        </div>
-      </header>
+      <BackgroundBubbles />
+      <WebHeader showBackButton={true} />
 
       <main style={{ paddingTop: '8rem' }}>
         {/* Demo Header */}
-        {/* <div className="HeaderBox" style={{ margin: '4rem auto' }}>
+        <div className="HeaderBox" style={{ margin: '4rem auto' }}>
           <h1>Starby AI Chatbot Demo</h1>
           <h3>Live AI Streaming Companion</h3>
           <p style={{ color: '#c4b5fd', marginTop: '1rem' }}>
-            This is a simplified demo of Starby. The real version integrates with Twitch, 
-            uses voice recognition, and can control OBS overlays!
+            {/* This is a simplified demo of Starby.  */}
+            This page is still under development and will be updated soon!
+            <br /> <br />
+            {/* The real version integrates with Twitch, uses voice recognition, and can control OBS overlays! */}
           </p>
-        </div> */}
+        </div>
+        
+        <div className="ChatBox">
+            {/* Chats */}
+            <div className = "MessageBox">
+                {messages.map((msg,i) => (
+                    <div className ={`${msg.isBot ? 'BotChatMessage' : 'UserChatMessage'}`} key = {i}> 
+                    <div className ={`${msg.isBot ? 'BotChatMessageTitle' : 'UserChatMessageTitle'}`}>
+                        {msg.isBot ? 'Starby' : 'You'}
+                    </div>
+                    {msg.text}
+                </div>
+                ))}
+            </div>
+            {/* Inputs */}
+            <div style = {{ display: "flex", gap: "0.5rem" }}>
+                <input 
+                    type="text" 
+                    value={input}
+                    onChange={(event) => setInput(event.target.value)}
+                    placeholder="Chat with Starby..."
+                />
+                <button
+                    onClick = {() => {
+                        setMessages([...messages, {text: input, isBot: false}])
+                        setInput('')
+                    }}
+                >Send</button>
+            </div>
+        </div>
 
-        {/* Chat Interface */}
-        {/* <div className="MainBox" style={{ maxWidth: '800px', margin: '2rem auto', height: '600px', display: 'flex', flexDirection: 'column' }}> */}
+        {/* CHAT INTERFACE - COMMENTED OUT FOR YOU TO BUILD FROM SCRATCH */}
+        {/* 
+        <div className="MainBox" style={{ maxWidth: '800px', margin: '2rem auto', height: '600px', display: 'flex', flexDirection: 'column' }}>
           {/* Chat Messages */}
           {/* <div style={{ 
             flex: 1, 
@@ -216,8 +230,8 @@ function StarbyDemo() {
             >
               Send
             </button>
-          </form> */}
-        {/* </div> */}
+          </form>
+        </div> */}
 
         {/* Features Box */}
         <div className="MainBox" style={{ maxWidth: '800px', margin: '2rem auto' }}>

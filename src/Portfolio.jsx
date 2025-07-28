@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import WebHeader, { BackgroundBubbles } from './parts';
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
@@ -32,26 +33,8 @@ function Portfolio() {
         zIndex: -2
         }}
       ></div>
-      <div className="bubbles">
-        {bubbleSettings.map((b, i) => (
-          <div
-            key={i}
-            className="bubble"
-            style={{
-              width: `${b.size}px`,
-              height: `${b.size}px`,
-              left: b.left,
-              animationDelay: b.delay,
-              animationDuration: b.duration
-            }}
-          ></div>
-        ))}
-      </div>
-      <header>
-        <p style={{ textAlign: "right" }}>
-        <a href="https://www.linkedin.com/in/erin-haynes-uiuc/" target="_blank" rel="noopener noreferrer">LinkedIn</a> • <a href="https://github.com/Kittyheart20" target="_blank" rel="noopener noreferrer">GitHub</a>
-        </p>
-      </header>
+      <BackgroundBubbles />
+      <WebHeader />
       <main>
         <div className="HeaderBox">
           <h1>Hi! I'm Erin Haynes</h1>
