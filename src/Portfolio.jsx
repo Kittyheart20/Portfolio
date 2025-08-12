@@ -8,6 +8,21 @@ import AiChatbot from './assets/AiBot.png';
 import Embernote from './assets/Embernote.png';
 import OlympicSmashdown from './assets/OlympicSmashdown.png';
 
+// Import all skill icons
+import pythonIcon from './assets/python.svg';
+import javaIcon from './assets/java.svg';
+import swiftIcon from './assets/swift.svg';
+import cIcon from './assets/C.png';
+import cplusplusIcon from './assets/cplusplus.svg';
+import javascriptIcon from './assets/javascript.svg';
+import assemblyIcon from './assets/assembly.png';
+import systemverilogIcon from './assets/sv.jpeg';
+import tensorflowIcon from './assets/tensorflow.svg';
+import pytorchIcon from './assets/pytorch.svg';
+import reactIcon from './assets/react.svg';
+import dockerIcon from './assets/docker.svg';
+import openaiIcon from './assets/openai.png';
+
 function Portfolio() {
   const bubbleSettings = [
     { size: 60, left: "10%", delay: "0s", duration: "18s" },
@@ -192,56 +207,56 @@ function Portfolio() {
             <div className="skills-grid">
               <div className="skill-item">
                 <div className="skill-icon">
-                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg" alt="Python" />
+                  <img src={pythonIcon} alt="Python" />
                 </div>
                 <div className="skill-name">Python</div>
                 <div className="skill-proficiency">Proficiency: Excellent</div>
               </div>
               <div className="skill-item">
                 <div className="skill-icon">
-                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-original.svg" alt="Java" />
+                  <img src={javaIcon} alt="Java" />
                 </div>
                 <div className="skill-name">Java</div>
                 <div className="skill-proficiency">Proficiency: Excellent</div>
               </div>
               <div className="skill-item">
                 <div className="skill-icon">
-                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/swift/swift-original.svg" alt="Swift" />
+                  <img src={swiftIcon} alt="Swift" />
                 </div>
                 <div className="skill-name">Swift</div>
                 <div className="skill-proficiency">Proficiency: Excellent</div>
               </div>
               <div className="skill-item">
                 <div className="skill-icon">
-                  <img src="https://upload.wikimedia.org/wikipedia/commons/1/19/C_Logo.png" alt="C" />
+                  <img src={cIcon} alt="C" />
                 </div>
                 <div className="skill-name">C</div>
                 <div className="skill-proficiency">Proficiency: Comfortable</div>
               </div>
               <div className="skill-item">
                 <div className="skill-icon">
-                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/cplusplus/cplusplus-original.svg" alt="C++" />
+                  <img src={cplusplusIcon} alt="C++" />
                 </div>
                 <div className="skill-name">C++</div>
                 <div className="skill-proficiency">Proficiency: Comfortable</div>
               </div>
               <div className="skill-item">
                 <div className="skill-icon">
-                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" alt="JavaScript" />
+                  <img src={javascriptIcon} alt="JavaScript" />
                 </div>
                 <div className="skill-name">JavaScript</div>
                 <div className="skill-proficiency">Proficiency: Learning</div>
               </div>
                <div className="skill-item">
                  <div className="skill-icon">
-                   <img src="https://user-images.githubusercontent.com/5421823/62779159-4cf76880-baaa-11e9-8318-e20a1aaa913a.png" alt="Assembly" />
+                   <img src={assemblyIcon} alt="Assembly" />
                  </div>
                  <div className="skill-name">Assembly</div>
                  <div className="skill-proficiency">Proficiency: Basics</div>
                </div>
                <div className="skill-item">
                  <div className="skill-icon">
-                   <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQnGvdibQnpucbWdkKTXUzuYnF3OJ0ESTn3cw&s" alt="SystemVerilog" />
+                   <img src={systemverilogIcon} alt="SystemVerilog" />
                  </div>
                  <div className="skill-name">SystemVerilog</div>
                  <div className="skill-proficiency">Proficiency: Comfortable</div>
@@ -254,31 +269,31 @@ function Portfolio() {
             <div className="skills-grid">
               <div className="skill-item">
                 <div className="skill-icon">
-                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tensorflow/tensorflow-original.svg" alt="TensorFlow" />
+                  <img src={tensorflowIcon} alt="TensorFlow" />
                 </div>
                 <div className="skill-name">TensorFlow</div>
               </div>
               <div className="skill-item">
                 <div className="skill-icon">
-                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/pytorch/pytorch-original.svg" alt="PyTorch" />
+                  <img src={pytorchIcon} alt="PyTorch" />
                 </div>
                 <div className="skill-name">PyTorch</div>
               </div>
               <div className="skill-item">
                 <div className="skill-icon">
-                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg" alt="React" />
+                  <img src={reactIcon} alt="React" />
                 </div>
                 <div className="skill-name">React</div>
               </div>
               <div className="skill-item">
                 <div className="skill-icon">
-                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.svg" alt="Docker" />
+                  <img src={dockerIcon} alt="Docker" />
                 </div>
                 <div className="skill-name">Docker</div>
               </div>
               <div className="skill-item">
                 <div className="skill-icon">
-                  <img src="https://registry.npmmirror.com/@lobehub/icons-static-png/latest/files/light/openai.png" alt="OpenAI" />
+                  <img src={openaiIcon} alt="OpenAI" />
                 </div>
                 <div className="skill-name">OpenAI API</div>
               </div>
